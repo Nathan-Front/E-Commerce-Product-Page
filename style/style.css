@@ -410,9 +410,10 @@ button:hover,.open-lightbox-front:hover{
     /*cart empty*/
     .cart-item-summary-empty.cartEmpty{
         margin: 0 auto;
-        right: .7em;
+        right: 1.2em;
         top: 6em;
         height: 17em;
+        width: 21em;
     }
     .cart-item-list-empty li:nth-child(1){
         margin: 1.5em 2em;
@@ -426,9 +427,10 @@ button:hover,.open-lightbox-front:hover{
     /*cart fill*/
     .cart-item-summary.cart{
         margin: 0 auto;
-        right: .7em;
+        right: 1.2em;
         top: 6em;
         height: 17em;
+        width: 21em;
     }
     .cart-item-list li:nth-child(1){
         margin: 1.5em 2em;
