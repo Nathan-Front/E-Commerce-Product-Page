@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Title: E-commerce challenge, Source: FrontendMentor, Challenger:Nathan-Front">
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>E-commerce product page</title>
+</head>
+<body>
+    <nav class="navigation-container">
+        <div class="logo-container">
+            <img src="images/logo.svg" alt="" aria-hidden="true">
+        </div>
+        <div class="open-menu-container" id="open_menu">
+            <img src="images/icon-menu.svg" alt="open menu links"  onclick="menuOpen()">
+        </div>
+        <div class="close-menu-container" id="close_menu">
+            <img src="images/icon-close.svg" alt="close menu links" onclick="menuClose()">
+        </div>
+        <ul class="main-nav" id="menu_links" aria-label="navigation links">
+            <li><a href="#" class="nav-hover">Collectors</a></li>
+            <li><a href="#" class="nav-hover">Men</a></li>
+            <li><a href="#" class="nav-hover">Women</a></li>
+            <li><a href="#" class="nav-hover">About</a></li>
+            <li><a href="#" class="nav-hover">Contact</a></li>
+        </ul>
+        <div class="basket-container">
+            <span id="item_total_count"></span>
+            <button class="cart" id="open_cart_summary" onclick="OpenCart()" aria-label="open and close cart"><img class="cart-icon" src="images/icon-cart.svg" alt="" aria-hidden="true"></button>
+            <button class="avatar" aria-label="acount avatar"><img class="avatar-icon" src="images/image-avatar.png" alt="" aria-hidden="true"></button>
+        </div>
+        <div class="cart-item-summary" id="display_summary" aria-label="filled cart">
+            <ul class="cart-item-list">
+                <li><strong>Cart</strong></li>
+                <li class="summary-details">
+                    <img id="total_image" src="images/image-product-1-thumbnail.jpg" class="cart-summary-image" alt="" aria-hidden="true">
+                    <p class="product-container">Fall Limited Edition Sneakers 
+                        <span>$125.00 X</span>
+                        <span id="total_item_value">0</span>
+                        <span id="total_payment">total</span>
+                    </p>
+                    <button id="delete_cart_item" onclick="DeleteItem()" aria-label="delete item"><img class="delete-icon" src="images/icon-delete.svg" alt="" aria-hidden="true"></button>
+                </li>
+                <li><button class="checkout" aria-label="checkout">Checkout</button></li>
+            </ul>
+        </div>
+        <div class="cart-item-summary-empty" id="display_summary_empty" aria-label="empty cart">
+            <ul class="cart-item-list-empty">
+                <li><strong>Cart</strong></li>
+                <li class="summary-details-empty">
+                    <p>Your cart is empty</p>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="main--container">
+        <article class="article-container">
+            <div class="article-content">
+                <h1>sneaker company</h1>
+                <h2>Fall Limited Edition Sneakers</h2>
+                <p>These low-profile sneakers are you perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
+                <p>$125.00 <span>50%</span></p>
+                <p class="dashed-text" id="original_price">$250.00</p>
+            </div>
+            <div class="article-buttons">
+                <div class="plus-minus-count">
+                    <button id="decrease_item" onclick="decreaseItem()" aria-label="decrease item"><img  src="images/icon-minus.svg" alt="" aria-hidden="true"></button>
+                    <span id="count_total">0</span>
+                    <button id="increase_item" onclick="increaseItem()" aria-label="increase item"><img src="images/icon-plus.svg" alt="" aria-hidden="true"></button>
+                </div>
+                <div class="add-to-cart-container">
+                    <button class="add-to-cart-button" id="add_to_cart" aria-label="add to cart"><img src="images/icon-cart-white.svg" alt="" aria-hidden="true">Add to cart</button>
+                </div>
+            </div>
+        </article>
+        <div class="carousel-container">
+            <div class="modal-back" id="lightbox" aria-hidden="true">
+                <span class="close" onclick="closeLightbox()">&times;</span>
+                <div class="lightbox-images-back">
+                    <img class="open-lightbox-back" src="images/image-product-1.jpg" alt="">
+                </div>
+                <div class="lightbox-images-back">
+                    <img class="open-lightbox-back" src="images/image-product-2.jpg" alt="">
+                </div>
+                <div class="lightbox-images-back">
+                    <img class="open-lightbox-back" src="images/image-product-3.jpg" alt="">
+                </div>
+                <div class="lightbox-images-back">
+                    <img class="open-lightbox-back" src="images/image-product-4.jpg" alt="">
+                </div>
+                <a class="previous" onclick="imageSlider(-1)">&#10094;</a>
+                <a class="next" onclick="imageSlider(1)">&#10095;</a>
+                <ul class="product-list-back">
+                    <li><button><img class="image-selector-back" src="images/image-product-1-thumbnail.jpg" alt="" aria-hidden="true" onclick="currentSlideBack(1)"></button></li>
+                    <li><button><img class="image-selector-back" src="images/image-product-2-thumbnail.jpg" alt="" aria-hidden="true" onclick="currentSlideBack(2)"></button></li>
+                    <li><button><img class="image-selector-back" src="images/image-product-3-thumbnail.jpg" alt="" aria-hidden="true" onclick="currentSlideBack(3)"></button></li>
+                    <li><button><img class="image-selector-back" src="images/image-product-4-thumbnail.jpg" alt="" aria-hidden="true" onclick="currentSlideBack(4)"></button></li>
+                </ul>
+            </div>
+            <div class="modal-front" aria-label="item content">
+                <div class="lightbox-images-front">
+                    <img class="open-lightbox-front" src="images/image-product-1.jpg" alt="image 1" onclick="openLightbox()">
+                </div>
+                <div class="lightbox-images-front">
+                    <img class="open-lightbox-front" src="images/image-product-2.jpg" alt="image 2" onclick="openLightbox()">
+                </div>
+                <div class="lightbox-images-front">
+                    <img class="open-lightbox-front" src="images/image-product-3.jpg" alt="image 3" onclick="openLightbox()">
+                </div>
+                <div class="lightbox-images-front">
+                    <img class="open-lightbox-front" src="images/image-product-4.jpg" alt="image 4" onclick="openLightbox()">
+                </div>
+                <a class="previous-front" onclick="imageSliderFront(-1)" aria-label="previous item">&#10094;</a>
+                <a class="next-front" onclick="imageSliderFront(1)" aria-label="next item">&#10095;</a>
+                <ul class="product-list-front">
+                    <li><button aria-label="image 1 button"><img class="image-selector-front availableItem" src="images/image-product-1-thumbnail.jpg" alt="" aria-hidden="true" onclick="currentSlide(1)"></button></li>
+                    <li><button aria-label="image 2 button"><img class="image-selector-front availableItem" src="images/image-product-2-thumbnail.jpg" alt="" aria-hidden="true" onclick="currentSlide(2)"></button></li>
+                    <li><button aria-label="image 3 button"><img class="image-selector-front availableItem" src="images/image-product-3-thumbnail.jpg" alt="" aria-hidden="true" onclick="currentSlide(3)"></button></li>
+                    <li><button aria-label="image 4 button"><img class="image-selector-front availableItem" src="images/image-product-4-thumbnail.jpg" alt="" aria-hidden="true" onclick="currentSlide(4)"></button></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+<script src="javascript/imageSelector.js"></script> 
+<script src="javascript/cartSummary.js"></script>
+<script src="javascript/script.js"></script>
+</body>
+</html>
